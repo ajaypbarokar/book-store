@@ -6,3 +6,17 @@ mat-toolbar.mat-toolbar {
   z-index: 10;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
 }
+
+.home {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0;
+}
+.home-content {
+  flex: 1;
+  margin: 0.5em;
+  height: 100vh;
+}

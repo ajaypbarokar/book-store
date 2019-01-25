@@ -7,6 +7,7 @@ import { SharedModule } from '../shared';
 
 @NgModule({
   declarations: [BookListComponent, BookDetailComponent],
-  imports: [SharedModule, BooksRoutingModule]
+  imports: [SharedModule, BooksRoutingModule],
+  entryComponents: [BookDetailComponent]
 })
 export class BooksModule {}

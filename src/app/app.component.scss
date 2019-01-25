@@ -1,0 +1,11 @@
+.home-content {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 65px;
+  left: 0;
+  right: 0;
+  flex: 1;
+  margin: 0.5em;
+  height: 100vh;
+}

@@ -1,3 +1,67 @@
-<p>
-  book-detail works!
-</p>
+<h2 mat-dialog-title>{{ titleText }}</h2>
+<mat-dialog-content class="mat-dialog-content">
+  <div>
+    <div class="verticalContainer" [formGroup]="form">
+      <mat-form-field>
+        <input matInput placeholder="Title" formControlName="title" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          placeholder="Edition"
+          formControlName="edition"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker1"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="verticalContainer">
+      <h3>List of Authors</h3>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let row; let i = index">
+            <mat-checkbox
+              color="primary"
+              (change)="selectRow($event, row.id)"
+              [(ngModel)]="row.isSelected"
+            >
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns; sticky: true"
+        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button
+    mat-flat-button
+    (click)="submit()"
+    color="primary"
+    [disabled]="form.invalid"
+    cdkFocusInitial
+  >
+    Save
+  </button>
+  <button mat-flat-button class="on-dot-cancel-button" mat-dialog-close>
+    Cancel
+  </button>
+</mat-dialog-actions>

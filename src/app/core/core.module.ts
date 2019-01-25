@@ -1,14 +1,14 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { DataService, LoggerService, LocalStorageService } from './services';
-import { HeaderComponent } from './header/header.component';
-import { MaterialModule } from '../material';
 import { RouterModule } from '@angular/router';
+
+import { MaterialModule } from '../material';
+import { DataService } from './data.service';
+import { HeaderComponent } from './header';
 
 @NgModule({
   imports: [CommonModule, MaterialModule, RouterModule],
-  providers: [LocalStorageService, LoggerService, DataService],
+  providers: [DataService],
   exports: [HeaderComponent],
   declarations: [HeaderComponent]
 })

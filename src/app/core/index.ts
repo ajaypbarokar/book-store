@@ -1,2 +1,4 @@
 export * from './core.module';
-export * from './services';
+export * from './data.service';
+export * from './author';
+export * from './mock-authors';
